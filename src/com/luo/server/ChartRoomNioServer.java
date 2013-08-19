@@ -28,7 +28,7 @@ public class ChartRoomNioServer {
 			
 			@Override
 			public ChannelPipeline getPipeline() throws Exception {
-				 ChannelPipeline pipeline = Channels.pipeline();
+				ChannelPipeline pipeline = Channels.pipeline();
 		        pipeline.addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.zeroDelimiter()));//netty没有提供\0截取。不过重写部分代码即可
 		        pipeline.addLast("stringDecoder", new StringDecoder(CharsetUtil.UTF_8));
 		        pipeline.addLast("stringEncoder", new StringEncoder(CharsetUtil.UTF_8));
